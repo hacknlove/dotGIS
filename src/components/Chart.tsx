@@ -5,7 +5,7 @@ import {
 import moment from 'moment'
 import './chart.scss'
 
-export default class Example extends PureComponent<any> {
+export default class Charts extends PureComponent<any> {
 
   formatTime (timestamp: number) {
     return moment(1000 * timestamp).format('YYYY-MM-DD HH[h]')
@@ -45,18 +45,6 @@ export default class Example extends PureComponent<any> {
             <Area dot={false} yAxisId="right" type="monotone" dataKey="humedad" stroke="#007de6" fill="#007de622" unit="%"/>
           </ComposedChart>
         </ResponsiveContainer>
-
-      // <ResponsiveContainer aspect={1.6}>
-      //   <ComposedChart data={this.props.data}>
-      //     <XAxis stroke="#202c45" interval="preserveStartEnd" dataKey="timestamp" />
-      //     <YAxis yAxisId="left" stroke="#202c45" domain={[0, 40]} />
-      //     <YAxis yAxisId="right" orientation="right" stroke="#202c45" domain={[0, 100]} />
-      //     <Tooltip />
-      //     <Legend />
-      //     <Line dot={false} yAxisId="left" type="monotone" dataKey="temperatura" stroke="#ff7300" />
-      //     <Area dot={false} yAxisId="right" type="monotone" dataKey="humedad" stroke="#007de6" fill="#007de622" />
-      //   </ComposedChart>
-      // </ResponsiveContainer>
-      )
+    )
   }
 }
