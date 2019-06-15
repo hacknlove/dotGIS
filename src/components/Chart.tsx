@@ -1,27 +1,16 @@
-import React, { PureComponent } from 'react';
+import React, { PureComponent } from 'react'
 import {
   ResponsiveContainer, ComposedChart, Line, Area, XAxis, YAxis, CartesianGrid, Tooltip, Legend,
-} from 'recharts';
+} from 'recharts'
 
-export default class Example extends PureComponent {
-  static jsfiddleUrl = '//jsfiddle.net/alidingling/9wnuL90w/';
-
-  data () {
-    return this.props.data.map(data => ({
-      name: data.dt_txt.split(/ |-/)[2],
-      temperatura: data.main.temp,
-      humedad: data.main.humidity,
-    }))
-  }
-
-
+export default class Example extends PureComponent<any> {
   render() {
     return (
         <ResponsiveContainer aspect={1.6}>
           <ComposedChart
             width={500}
             height={400}
-            data={this.data()}
+            data={this.props.data}
             margin={{
               top: 10, right: 10, bottom: 10, left: 10,
             }}

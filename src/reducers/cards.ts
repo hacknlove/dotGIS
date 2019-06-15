@@ -3,7 +3,12 @@ const loadCity = function (state: any = {}, action: any) {
         ...state,
         [action.data.city.id]: {
             name: action.data.city.name,
-            data: action.data.list,
+            data: action.data.list.map((data: any) => ({
+                timestamp: data.dt,
+                name: data.dt_txt.substr(5, 11),
+                temperatura: data.main.temp,
+                humedad: data.main.humidity,
+            })),
         }
     }
 }
