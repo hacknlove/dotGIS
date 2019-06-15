@@ -9,17 +9,19 @@ import Chart from '../Chart/Chart'
 class CardPresentation extends Component<any> {
   render() {
     return (
-        <div className="card">
-          <div className="title">
-            {this.props.name}
-            <div onClick={this.props.close}>
-              <FontAwesomeIcon icon={faTimes}/>
+        <div className="cardContainer">
+          <div className="card">
+            <div className="title">
+              {this.props.name}
+              <div onClick={this.props.close}>
+                <FontAwesomeIcon icon={faTimes}/>
+              </div>
             </div>
-          </div>
-            <div className="body">
-              <Chart data={this.props.data}/>
-            </div>
+              <div className="body">
+                <Chart data={this.props.data}/>
+              </div>
 
+          </div>
         </div>
     )
   }

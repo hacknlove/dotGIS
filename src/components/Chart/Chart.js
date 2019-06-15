@@ -17,8 +17,7 @@ export default class Example extends PureComponent {
 
   render() {
     return (
-      <div style={{ width: '100%', height: 300 }}>
-        <ResponsiveContainer width="99%" debounce="1" aspect={1.6}>
+        <ResponsiveContainer aspect={1.6}>
           <ComposedChart
             width={500}
             height={400}
@@ -37,7 +36,6 @@ export default class Example extends PureComponent {
             <Area dot={false} yAxisId="right" type="monotone" dataKey="humedad" stroke="#007de6" fill="#007de622"/>
           </ComposedChart>
         </ResponsiveContainer>
-      </div>
     );
   }
 }
