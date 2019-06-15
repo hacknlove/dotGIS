@@ -1,6 +1,7 @@
 {
   "name": "dotgis-challenge",
-  "version": "1.1.0",
+  "version": "1.2.0",
+  "dockerHubUser": "hacknlove",
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.19",
@@ -25,7 +26,9 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "docker": "bash build.sh",
+    "build:docker": "bash build.sh",
+    "serve": "npm run build; npx serve -s ./build; rm -r build",
+    "serve:docker": "echo open http://localhost:5000 in the browser; docker run --rm -p 5000:80 hacknlove/dotgis-challenge:latest",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
