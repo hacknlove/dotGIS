@@ -1,8 +1,13 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Run with docker
+https://hub.docker.com/r/hacknlove/dotgis-challenge
+```
+docker run --name=dotgis-challenge --restart=always -d -p 5000:80 hacknlove/dotgis-challenge:latest
+```
 
 
 ## Default Create React App Scripts
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 * `npm start`
 * `npm test`
