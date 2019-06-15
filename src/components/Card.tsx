@@ -4,7 +4,7 @@ import './Card.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTimes } from '@fortawesome/free-solid-svg-icons'
 
-import Chart from '../Chart/Chart'
+import Chart from './Chart'
 
 class CardPresentation extends Component<any> {
   render() {

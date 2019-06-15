@@ -1,9 +1,9 @@
 import React from 'react';
 import './App.scss';
 
-import Header from './components/Header/Header'
-import Menu from './components/Menu/Menu'
-import Grid from './components/Grid/Grid'
+import Header from './containers/Header'
+import Menu from './containers/Menu'
+import Grid from './containers/Cards'
 
 const App: React.FC = () => {
   return (
