@@ -9,7 +9,8 @@ import cards from './cards'
 
 const reducer = combineReducers({
     menuCityShow,
-    cards
+    cards,
+    citys: (state = []) => state
 }) as any
 
 const store = createStore(reducer, initialState)
