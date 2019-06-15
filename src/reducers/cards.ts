@@ -5,7 +5,7 @@ const loadCity = function (state: any = {}, action: any) {
             name: action.data.city.name,
             data: action.data.list.map((data: any) => ({
                 timestamp: data.dt,
-                name: data.dt_txt.substr(5, 11),
+                name: data.dt_txt.substr(5, 8) + 'h',
                 temperatura: data.main.temp,
                 humedad: data.main.humidity,
             })),
