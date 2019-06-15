@@ -13,15 +13,13 @@ export default class Example extends PureComponent<any> {
   tooltip = (props: any) => {
     if (!props.active) return null
       const label = this.formatTime(props.label)
-
-      console.log(props)
       return (
         <div className="recharts-default-tooltip">
           <p className="recharts-tooltip-label">{label}</p>
           <ul className="recharts-tooltip-item-list">
             {
               props.payload.map((item: any) => (
-                <li className="recharts-tooltip-item" style={{color: item.color}}>
+                <li key={item.dataKey} className="recharts-tooltip-item" style={{color: item.color}}>
                   <span className="recharts-tooltip-item-name">{item.name}</span>
                   <span className="recharts-tooltip-item-separator">: </span>
                   <span className="recharts-tooltip-item-value">{item.value}</span>
