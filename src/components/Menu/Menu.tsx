@@ -1,17 +1,19 @@
-import React, { MouseEvent } from 'react';
-import './Menu.scss';
-
+import React from 'react';
 import { connect } from 'react-redux'
 
+import { loadApi } from '../../openweathermap'
+
+import './Menu.scss';
+
 const MenuPresentation: React.FC = (props: any) => {
-    if (!props.items) {
+    if (!props.menuCityShow) {
         return null
     }
     return (
         <nav>
             <ul>
                 {
-                    props.items.map((item: any) => <li key="item" onClick={() => props.select(item)}>{item}</li>)
+                    props.items.map((item: any) => <li key={item} onClick={() => props.loadCity(item)}>{item}</li>)
                 }
             </ul>
         </nav>
@@ -20,27 +22,17 @@ const MenuPresentation: React.FC = (props: any) => {
 
 const MenuContainer = connect(
     function mapStateToProps (state: any) {
-        switch (state.menuType) {
-            case 'CITIES':
-                return {
-                    items: state.ciudades,
-                    type: 'SELECT_CITY'
-                }
-            case 'DATA':
-                return {
-                    items: state.data,
-                    type: 'SELECT_DATA'
-                }
-            default:
-                return null
+        return {
+            menuCityShow: state.menuCityShow,
+            items: state.citys
         }
     },
     function mapDispatchToProps (dispatch, ownProps: any) {
         return {
-            select: (item: any) => {
+            loadCity (item: string) {
+                loadApi(item)
                 dispatch({
-                    type: ownProps.type,
-                    item
+                    type: 'TOOGLE_MENU'
                 })
             }
         }

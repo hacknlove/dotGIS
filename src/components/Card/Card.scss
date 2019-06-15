@@ -1,0 +1,19 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  .title {
+    text-transform: uppercase;
+    display: flex;
+    justify-content: space-between;
+    svg {
+      cursor: pointer;
+      color: var(--ink)
+    }
+  }
+  path {
+    stroke-width: 2px;
+  }
+  box-shadow: 0 0 11px -10px var(--ink);
+
+}

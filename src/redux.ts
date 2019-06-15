@@ -1,10 +1,13 @@
 import { createStore } from 'redux'
 
 import './openweathermap'
+import { faChargingStation } from '@fortawesome/free-solid-svg-icons';
 
 const initialState = {
-    menuType: 'CITIES',
-    ciudades: [
+    menuCityShow: false,
+    cards: {
+    },
+    citys: [
          'Albacete ',
          'Alicante ',
          'Almería ',
@@ -59,22 +62,52 @@ const initialState = {
          'Vitoria ',
          'Zamora ',
          'Zaragoza ',
+    ],
+    data: [
+        'temperatura',
+        'temperatura minima',
+        'temperatura máxima',
+        'presión atmosférica',
+        'humedad',
+        'velocidad del viento'
     ]
 }
 
 const reducer = (state = initialState, action: any) => {
-
+    console.log(action)
     switch (action.type) {
-        case 'SHOW_MENU':
+        case 'TOOGLE_MENU':
             return {
                 ...state,
-                menuType: 'CITIES'
+                menuCityShow: !state.menuCityShow
             }
+        case 'LOAD_CITY':
+            return {
+                ...state,
+                cards: {
+                    ...state.cards,
+                    [action.data.city.id]: {
+                        name: action.data.city.name,
+                        data: action.data.list,
+
+                    }
+                }
+            }
+        case 'CLOSE_CHART':
+            const cards = {... state.cards} as any
+            delete cards[action.card]
+            return {
+                ...state,
+                cards
+            }
+
         default:
             return state
     }
 }
 
 const store = createStore(reducer)
+
+store.subscribe(() => console.log(store.getState()))
 
 export default store

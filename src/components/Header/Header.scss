@@ -1,4 +1,10 @@
 header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    background: #ffffffee;
     display: flex;
     justify-content: space-between;
 
@@ -16,10 +22,17 @@ header {
         font-size: 1rem;
     }
     svg {
-        transition: color .2s;
+        transition: color .2s, transform .2s;
         cursor: pointer;
         &:hover {
             color: var(--highlight);
         }
     }
+    &.open {
+        svg {
+            color: var(--highlight);
+            transform: rotate(45deg);
+        }
+    }
+
 }

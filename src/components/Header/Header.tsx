@@ -9,12 +9,12 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons'
 
 const HeaderPresentation: React.FC = (props: any) => {
     return (
-        <header>
+        <header className={props.menuCityShow ? 'open' : 'close'}>
             <img src={logo} alt="" />
             <span>
                 dotGIS React coding challenge
             </span>
-            <div onClick={props.openMenu} >
+            <div onClick={() => props.openMenu(props.menuOpen)} >
                 <FontAwesomeIcon icon={faPlus} />
             </div>
         </header>
@@ -22,14 +22,16 @@ const HeaderPresentation: React.FC = (props: any) => {
 }
 
 const HeaderContainer = connect(
-    function mapStateToProps() {
-        return null
+    function mapStateToProps(state: any) {
+        return {
+            menuCityShow: state.menuCityShow
+        }
     },
     function mapDispatchToProps(dispatch, ownProps: any) {
         return {
-            openMenu: () => {
+            openMenu (close:boolean) {
                 dispatch({
-                    type: 'SHOW_MENU'
+                    type: 'TOOGLE_MENU'
                 })
             }
         }
