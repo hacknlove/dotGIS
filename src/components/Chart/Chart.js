@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import {
-  ResponsiveContainer, ComposedChart, Line, Area, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend,
+  ResponsiveContainer, ComposedChart, Line, Area, XAxis, YAxis, CartesianGrid, Tooltip, Legend,
 } from 'recharts';
 
 export default class Example extends PureComponent {
