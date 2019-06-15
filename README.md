@@ -1,9 +1,12 @@
+## demo
+
+https://dotgis.hacknlove.org
+
 ## Run with docker
 https://hub.docker.com/r/hacknlove/dotgis-challenge
 ```
 docker run --name=dotgis-challenge --restart=always -d -p 5000:80 hacknlove/dotgis-challenge:latest
 ```
-
 
 ## Default Create React App Scripts
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -34,7 +37,7 @@ Serves the production environment from the last docker image
 ```
 version: '3.2'
 services:
-  rest-api:
+  static:
     restart: always
     image: hacknlove/dotgis-challenge:latest
     logging:
@@ -51,5 +54,7 @@ services:
       - "traefik.enable=true"
       - "traefik.frontend.rule=Host:example.com"
       - "traefik.docker.network=web"
-
+networks:
+  web:
+    external: true
 ```
