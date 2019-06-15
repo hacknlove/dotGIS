@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux'
 import './Card.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTimes } from '@fortawesome/free-solid-svg-icons'
 
 import Chart from './Chart'
 
-class CardPresentation extends Component<any> {
+class Card extends Component<any> {
   render() {
     return (
         <div className="cardContainer">
@@ -27,23 +26,5 @@ class CardPresentation extends Component<any> {
   }
 }
 
-const CardContainer = connect(
-  function mapStateToProps (state: any, ownProps: any) {
-    return {
-      ...state.cards[ownProps.card],
-      id: ownProps.card
-    }
-  },
-  function mapDispatchToProps(dispatch, ownProps: any) {
-    return {
-        close () {
-            dispatch({
-                type: 'CLOSE_CHART',
-                card: ownProps.card
-            })
-        }
-    }
-  }
-)(CardPresentation)
 
-export default CardContainer
+export default Card
